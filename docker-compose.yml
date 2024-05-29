@@ -33,15 +33,15 @@ services:
     build:
       context: ./api
 
-    # volumes:
-    #   - ./api:/app
-    #   - /app/__pycache__
+    volumes:
+      - /app/__pycache__
     command: flask run 
     environment:
       FLASK_ENV: development
       FLASK_APP: ${FLASK_APP}
       FLASK_DEBUG: ${FLASK_DEBUG}
       DATABASE_URL: ${DATABASE_URL}
+      DOCKER_CONTAINER: 'true'
 
     ports:
       - "5000:5000"
